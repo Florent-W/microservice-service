@@ -1,0 +1,30 @@
+{
+  "name": "service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "dotenv -e developpement.env nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Florent-W/microservice-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Florent-W/microservice-service/issues"
+  },
+  "homepage": "https://github.com/Florent-W/microservice-service#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.1.4",
+    "dotenv-cli": "^7.2.1",
+    "mongoose": "^7.2.2",
+    "nodemon": "^2.0.22"
+  }
+}
