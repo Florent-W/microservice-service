@@ -1,7 +1,7 @@
 import express from "express"
 import { ServiceRepository } from "./repository/service.repository.js"
 import router from "./controller/service.controller.js"
-import errorHandlerMiddleware from "../Error/ErrorHandler.js"
+import errorHandlerMiddleware from "./Error/ErrorHandler.js"
 
 const app = express()
 app.use(express.urlencoded({ extended: true }))
