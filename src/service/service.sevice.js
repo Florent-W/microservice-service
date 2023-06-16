@@ -1,7 +1,20 @@
+import { currentUser } from "../api/authentification.microservice.js";
 import { ServiceRepository } from "../repository/service.repository.js"
+import jwt_decode from "jwt-decode";
 
-const getServices = async (req, res)=> {
+const getUserId = (req)=> {
+    const bearerToken = req.headers.authorization
+    console.log(bearerToken)
+    return jwt_decode(bearerToken)
+}
+
+const getServicesByUser = async (req, res)=> {
     const services = await ServiceRepository.find()
+    const bearerToken = req.headers.authorization
+    const userId = await getUserId(req)
+
+    const user = await currentUser(1, bearerToken)
+    console.log(user)
     res.send({services})
 }
 
@@ -36,4 +49,4 @@ const deleteOneService = async (req, res)=> {
     res.status(202).send({message: "Successful delete", id})
 }
 
-export {getServices, getOneService, createOneService, updateOneService, deleteOneService}
+export {getServicesByUser as getServicesByUser, getOneService, createOneService, updateOneService, deleteOneService}
