@@ -1,11 +1,12 @@
 import express from "express"
 import { ServiceRepository } from "./repository/service.repository.js"
 import router from "./controller/service.controller.js"
+import errorHandlerMiddleware from "../Error/ErrorHandler.js"
 
 const app = express()
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
-const port = process.env.PORT 
+const port = process.env.PORT
 
 console.log(process.env.MODE)
 /*
@@ -21,9 +22,9 @@ const newSevice = ServiceRepository.create({
 app.get('/', (req, res) => {
     res.send("Hello world")
 })
-
 app.use(router)
+app.use(errorHandlerMiddleware)
 
-app.listen(port, ()=> {
+app.listen(port, () => {
     console.log("Port is open at " + port)
 })
