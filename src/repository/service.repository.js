@@ -1,10 +1,10 @@
 import mongoose from "mongoose"
 
 mongoose.connect(process.env.URL_DATABASE)
-    .then(() => "connected to database")
     .catch(error =>
         console.log({ error })
     )
+    .then(() => "connected to database")
 
 const serviceSchema = new mongoose.Schema({
     date_start: Date,
